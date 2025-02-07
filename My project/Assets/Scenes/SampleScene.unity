@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Up (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4143189084742096265, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5476335479014238419, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -5304,6 +5308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2397d9de9b570a04389d4152aaf367b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1687290394}
 --- !u!1 &223818927
 GameObject:
   m_ObjectHideFlags: 0
@@ -15293,6 +15298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Up (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4143189084742096265, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5476335479014238419, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -20289,6 +20298,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  bullet: {fileID: 0}
+  bulletSpeed: 100
+  jump: {x: 0, y: 0, z: 0}
+  jumpVelocity: 5
+  isGrounded: 0
 --- !u!114 &705507997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20303,6 +20317,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  bullet: {fileID: 0}
+  bulletSpeed: 100
+  jump: {x: 0, y: 0, z: 0}
+  jumpVelocity: 5
+  isGrounded: 0
 --- !u!1 &713591087
 GameObject:
   m_ObjectHideFlags: 0
@@ -25245,6 +25264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2397d9de9b570a04389d4152aaf367b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1687290394}
 --- !u!1 &791081064
 GameObject:
   m_ObjectHideFlags: 0
@@ -40731,6 +40751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2397d9de9b570a04389d4152aaf367b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1687290394}
 --- !u!1 &1426740465
 GameObject:
   m_ObjectHideFlags: 0
@@ -40995,6 +41016,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 75
+  bullet: {fileID: 1795932851090906641, guid: 7770b8e083cecf740935bec572e088be, type: 3}
+  bulletSpeed: 100
+  jump: {x: 0, y: 0, z: 0}
+  jumpVelocity: 5
+  isGrounded: 0
 --- !u!54 &1471849823
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41003,11 +41029,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471849816}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaTensor: {x: 1, y: 1, z: 0.1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
@@ -41020,7 +41046,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &1489437334
 PrefabInstance:
@@ -41030,6 +41056,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1012778320}
     m_Modifications:
+    - target: {fileID: 1385300518893036924, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5260832546127641816, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
       propertyPath: m_Name
       value: Speed_Up (1)
@@ -41277,6 +41307,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1687290392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1687290393}
+  - component: {fileID: 1687290394}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1687290393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687290392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.863699, y: 2.635929, z: -2.4545722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687290394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687290392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a8fa67f4a3c8346902646e96fc1b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelText: Collect all 4 items and win your freedom!
+  maxItems: 4
+  showWinScreen: 0
+  gameManager: {fileID: 0}
 --- !u!4 &1692900401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3736075043153581812, guid: 69f5e83183ba0124ab0c0991fb9188e8, type: 3}
@@ -41290,6 +41368,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1012778320}
     m_Modifications:
+    - target: {fileID: 1385300518893036924, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5260832546127641816, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
       propertyPath: m_Name
       value: Speed_Up (3)
@@ -41397,6 +41479,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1012778320}
     m_Modifications:
+    - target: {fileID: 1385300518893036924, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5260832546127641816, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
       propertyPath: m_Name
       value: Speed_Up (2)
@@ -46351,6 +46437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Up (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4143189084742096265, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5476335479014238419, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -65812,6 +65902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Up
       objectReference: {fileID: 0}
+    - target: {fileID: 4143189084742096265, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5476335479014238419, guid: 816d4659ffa78b34984678cf31ada146, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -65871,6 +65965,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1012778320}
     m_Modifications:
+    - target: {fileID: 1385300518893036924, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 5260832546127641816, guid: 02e7d812bfe6fc14096630eb0abc4a38, type: 3}
       propertyPath: m_Name
       value: Speed_Up
@@ -65974,6 +66072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7471169074484198338, guid: e2fe88af0122f0d4ebb36057c6f3adc9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1687290394}
     - target: {fileID: 8702959917641137134, guid: e2fe88af0122f0d4ebb36057c6f3adc9, type: 3}
       propertyPath: m_Name
       value: Jump_Up
@@ -66158,6 +66260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2397d9de9b570a04389d4152aaf367b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1687290394}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -66167,3 +66270,4 @@ SceneRoots:
   - {fileID: 946334223}
   - {fileID: 791081065}
   - {fileID: 1054702832}
+  - {fileID: 1687290393}

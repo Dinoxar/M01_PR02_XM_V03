@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Jump_Up_Behavior : MonoBehaviour 
 {
-
+    public GameBehavior gameManager;
+    void Start()
+    {              
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameBehavior>();
+    }    
     void OnCollisionEnter(Collision collision)
     {
 
@@ -14,6 +18,8 @@ public class Jump_Up_Behavior : MonoBehaviour
             Destroy(this.transform.parent.gameObject);
 
             Debug.Log("Item collected! Jump");
+
+            gameManager.Items += 1;
         }
     }
 } 

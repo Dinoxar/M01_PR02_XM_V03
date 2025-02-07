@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Speed_Up_Behavior : MonoBehaviour 
 {
-
+    public GameBehavior gameManager;
+    void Start()
+    {              
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameBehavior>();
+    }    
     void OnCollisionEnter(Collision collision)
     {
 
@@ -13,7 +17,9 @@ public class Speed_Up_Behavior : MonoBehaviour
 
             Destroy(this.transform.parent.gameObject);
 
-            Debug.Log("Item collected! Speed Up");
+            Debug.Log("Item collected! Speed Up!");
+
+            gameManager.Items += 1;
         }
     }
 } 
