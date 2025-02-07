@@ -7,7 +7,7 @@ public class AttackUp_Behavior : MonoBehaviour
     public GameBehavior gameManager;
     void Start()
     {              
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameBehavior>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
     }    
     void OnCollisionEnter(Collision collision)
     {

@@ -11,9 +11,10 @@ public class GameBehavior : MonoBehaviour
     private int _playerHP = 10;
     public int Items
     {
-        get { return _itemsCollected; }
+        get {return _itemsCollected;}
 
-        set { 
+        set
+        { 
             _itemsCollected = value; 
             if(_itemsCollected >= maxItems)
             {
