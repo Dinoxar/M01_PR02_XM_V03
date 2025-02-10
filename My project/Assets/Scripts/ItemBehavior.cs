@@ -17,7 +17,9 @@ public class ItemBehavior : MonoBehaviour
 
             Destroy(this.transform.parent.gameObject);
 
-            Debug.Log("Item collected!");
+            Debug.Log("Item collected! HP up");
+
+            gameManager._playerHP += 5;
 
             gameManager.Items += 1;
         }

@@ -18,6 +18,7 @@ public class PlayerBehavior : MonoBehaviour
     public Vector3 jump;
     public float jumpVelocity = 10f;
     public bool isGrounded;
+    public bool isCollected = false;
 
     void Start()
     {
@@ -64,10 +65,10 @@ public class PlayerBehavior : MonoBehaviour
             bulletRB.velocity = this.transform.forward * bulletSpeed;
         }
        
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && (isGrounded && isCollected))
         {
-    			_rb.AddForce(jump * jumpVelocity, ForceMode.Impulse);
-    			isGrounded = false;
+            _rb.AddForce(jump * jumpVelocity, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 } 

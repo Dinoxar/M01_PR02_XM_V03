@@ -8,7 +8,7 @@ public class GameBehavior : MonoBehaviour
     public int maxItems = 4;
     private int _itemsCollected = 0;
     public bool showWinScreen = false;
-    private int _playerHP = 10;
+    public int _playerHP = 10;
     public int Items
     {
         get {return _itemsCollected;}
