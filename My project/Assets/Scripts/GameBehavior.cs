@@ -9,6 +9,8 @@ public class GameBehavior : MonoBehaviour
     private int _itemsCollected = 0;
     public bool showWinScreen = false;
     public int _playerHP = 10;
+    
+    public PlayerBehavior playerBehavior;
     public int Items
     {
         get {return _itemsCollected;}
@@ -45,7 +47,11 @@ public class GameBehavior : MonoBehaviour
     {
         GUI.Box(new Rect(20, 20, 150, 25), "Player Health:" + _playerHP);
 
-        GUI.Box(new Rect(20, 50, 150, 25), "Items Collected: " + _itemsCollected);
+        GUI.Box(new Rect(20, 80, 150, 25), "Items Collected: " + _itemsCollected);
+
+        GUI.Box(new Rect(180, 20, 150, 25), "Jump: " + playerBehavior.isCollected);
+
+        GUI.Box(new Rect(20, 50, 150, 25), "Speed: " + playerBehavior.moveSpeed);
 
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50), labelText); 
 
@@ -61,7 +67,7 @@ public class GameBehavior : MonoBehaviour
     public GameBehavior gameManager;
     void Start()
     {
-        
+        playerBehavior = GameObject.Find("Player").GetComponent<PlayerBehavior>();
     }
     void Update()
     {

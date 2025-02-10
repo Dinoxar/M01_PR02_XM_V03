@@ -56,6 +56,8 @@ public class PlayerBehavior : MonoBehaviour
 
         _rb.MoveRotation(_rb.rotation * angleRot);
 
+        
+
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newBullet = Instantiate(bullet,this.transform.position + new Vector3(1, 0, 0),this.transform.rotation) as GameObject;
